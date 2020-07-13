@@ -1,4 +1,5 @@
 .htaccess
+composer.lock
 consts.php
 db.php
 documents
