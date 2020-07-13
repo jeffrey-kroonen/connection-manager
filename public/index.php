@@ -9,6 +9,7 @@
      *  Use classes.
      */
     use ConnectionManager\Src\Core\Route;
+    use ConnectionManager\Src\Core\Guard;    
 
     /**
      *  Initialize pageConfig array.
@@ -20,10 +21,31 @@
         include DOCUMENT_ROOT . "/public/dashboard.php";
     }, "get");
 
+    Route::add("/login", function() {
+        if (Guard::authenticated()) header("location:" . URL);
+
+        $pageConfig["title"] = "Login";
+        include DOCUMENT_ROOT . "/public/auth/login.php";
+    }, "get");
+
+    Route::add("/login", function() {
+        if (Guard::authenticated()) header("location:" . URL);
+        
+        include DOCUMENT_ROOT . "/public/http/auth/login.php";
+    }, "post");
+
     Route::add("/connection/create", function() {
+        if (!Guard::role(["user", "administrator"])) header("location:" . URL);
+
         $pageConfig["title"] = "Create connection";
         include DOCUMENT_ROOT . "/public/connection/create.php";
     }, "get");
+
+    Route::add("/connection/create", function() {
+        if (!Guard::role(["user", "administrator"])) header("location:" . URL);
+
+        include DOCUMENT_ROOT . "/public/http/connection/create.php";
+    }, "post");
 
     Route::run("/connection-manager");
 

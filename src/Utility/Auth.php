@@ -3,6 +3,7 @@
     namespace ConnectionManager\Src\Utility;
 
     use ConnectionManager\Src\Core\Database;
+    use ConnectionManager\Src\Model\Role;
 
     /**
      * Trait Auth.
@@ -37,9 +38,9 @@
         {
             if (isset($this->id) && !empty($this->id)) {
                 $_SESSION["user_id"] = $this->id;
-                $_SESSION["role_id"] = $this->role_id;
+                $_SESSION["role"] = Role::find($this->role_id)->description;
                 $_SESSION["authenticated"] = true;
-
+                
                 $this->last_login = date("Y-m-d H:i:s");
                 $this->save();
             }

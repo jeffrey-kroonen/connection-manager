@@ -1,6 +1,11 @@
 <?php
 
     /**
+     * Start session.
+     */
+    session_start();
+
+    /**
      *  Require files.
      */
     require_once __DIR__ . "/vendor/autoload.php";

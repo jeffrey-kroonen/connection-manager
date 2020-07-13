@@ -12,7 +12,7 @@
         {
             $data = [
                 "id" => 1,
-                "role_id" => "123ABC",
+                "role_id" => 1,
                 "first_name" => "John",
                 "last_name" => "Doe",
                 "email" => "johndoe@test.com",
@@ -28,7 +28,7 @@
         public function testConstructorSetProperties()
         {
             $this->assertEquals(1, $this->user->id);
-            $this->assertEquals("123ABC", $this->user->role_id);
+            $this->assertEquals(1, $this->user->role_id);
             $this->assertEquals("John", $this->user->first_name);
             $this->assertEquals("Doe", $this->user->last_name);
             $this->assertEquals("johndoe@test.com", $this->user->email);
@@ -60,5 +60,10 @@
             $string = "john";
 
             $this->assertTrue($this->user->verifyLength($string, 3, 15));
+        }
+
+        public function testCanUserLogin()
+        {
+            $this->assertNull($this->user->login());
         }
     }
