@@ -1,0 +1,31 @@
+{
+    "name": "jeffrey-kroonen/connection-manager",
+    "description": "Manage application connections.",
+    "keywords": [
+        "php",
+        "application",
+        "connection",
+        "manager"
+      ],
+      "homepage": "https://github.com/jeffrey-kroonen/connection-manager",
+    "type": "project",
+    "readme": "README.md",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jeffrey Kroonen",
+            "email": "jeffreykroonen@gmail.com",
+            "role": "developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.1"
+    },
+    "autoload": {
+        "psr-4": { "ConnectionManager\\Src\\": "src/" }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "9.2"
+    }
+}
