@@ -17,6 +17,8 @@
     $pageConfig = [];
 
     Route::add('/',function(){
+        if (!Guard::role(["user", "administrator"])) Guard::redirectLogin();
+
         $pageConfig["title"] = "Dashboard";
         include DOCUMENT_ROOT . "/public/dashboard.php";
     }, "get");
@@ -35,14 +37,14 @@
     }, "post");
 
     Route::add("/connection/create", function() {
-        if (!Guard::role(["user", "administrator"])) header("location:" . URL);
+        if (!Guard::role(["user", "administrator"])) Guard::redirectLogin();
 
         $pageConfig["title"] = "Create connection";
         include DOCUMENT_ROOT . "/public/connection/create.php";
     }, "get");
 
     Route::add("/connection/create", function() {
-        if (!Guard::role(["user", "administrator"])) header("location:" . URL);
+        if (!Guard::role(["user", "administrator"])) Guard::redirectLogin();
 
         include DOCUMENT_ROOT . "/public/http/connection/create.php";
     }, "post");

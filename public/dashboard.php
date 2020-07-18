@@ -2,6 +2,8 @@
 
     include HEADER;
 
+    include NAV;
+
 ?>
 
     <div class="container mt-5">

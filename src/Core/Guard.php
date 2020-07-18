@@ -39,4 +39,15 @@
             }
             return false;
         }
+
+        /**
+         * redirectLogin
+         *
+         * @return void
+         * @access public
+         */
+        public static function redirectLogin()
+        {
+            header("location:" . URL . "/login");
+        }
     }
