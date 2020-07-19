@@ -36,6 +36,12 @@
         include DOCUMENT_ROOT . "/public/http/auth/login.php";
     }, "post");
 
+    Route::add("/logout", function() {
+        if (!Guard::authenticated()) Guard::redirectLogin();
+
+        include DOCUMENT_ROOT . "/public/http/auth/logout.php";
+    }, "get");
+
     Route::add("/connection/create", function() {
         if (!Guard::role(["user", "administrator"])) Guard::redirectLogin();
 
