@@ -27,6 +27,7 @@
         if (Guard::authenticated()) header("location:" . URL);
 
         $pageConfig["title"] = "Login";
+        $pageConfig["javascript"] = ["auth.js"];
         include DOCUMENT_ROOT . "/public/auth/login.php";
     }, "get");
 

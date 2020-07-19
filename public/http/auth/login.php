@@ -1,11 +1,6 @@
 <?php
 
     /**
-     * Require files.
-     */
-    require_once dirname(__DIR__, 3) . "/bootstrap.php";
-
-    /**
      * Use classes.
      */
     use ConnectionManager\Src\Model\User;    

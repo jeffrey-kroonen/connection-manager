@@ -15,7 +15,7 @@
 
                 <div class="card-body shadow">
                 
-                    <form action="<?= URL; ?>/login" method="post">
+                    <form action="<?= URL; ?>/login" method="post" id="login-form">
                         <div class="form-group">
                             <label for="email">E-mail</label>
                             <input type="email" name="email" class="form-control" id="email" required>
