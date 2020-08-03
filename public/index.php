@@ -56,5 +56,9 @@
         include DOCUMENT_ROOT . "/public/http/connection/create.php";
     }, "post");
 
+    Route::pathNotFound(function() {
+        include DOCUMENT_ROOT . "/public/404.php";
+    });
+
     Route::run("/connection-manager");
 
